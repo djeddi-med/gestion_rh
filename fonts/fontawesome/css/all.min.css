@@ -1,0 +1,165 @@
+/*!
+ * Font Awesome Free 6.4.0 - Local Copy
+ * License - https://fontawesome.com/license/free
+ */
+@font-face {
+    font-family: "Font Awesome 6 Free";
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("../webfonts/fa-regular-400.woff2") format("woff2"),
+         url("../webfonts/fa-regular-400.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Font Awesome 6 Free";
+    font-style: normal;
+    font-weight: 900;
+    font-display: block;
+    src: url("../webfonts/fa-solid-900.woff2") format("woff2"),
+         url("../webfonts/fa-solid-900.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Font Awesome 6 Brands";
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("../webfonts/fa-brands-400.woff2") format("woff2"),
+         url("../webfonts/fa-brands-400.ttf") format("truetype");
+}
+
+.fa, .fas, .fa-solid, .far, .fa-regular, .fal, .fa-light, .fat, .fa-thin, .fad, .fa-duotone, .fab, .fa-brands {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: var(--fa-display, inline-block);
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-rendering: auto;
+}
+.fas, .fa-solid, .fa {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+.far, .fa-regular {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 400;
+}
+.fab, .fa-brands {
+    font-family: "Font Awesome 6 Brands";
+    font-weight: 400;
+}
+
+/* Spin animation */
+.fa-spin { animation: fa-spin 2s infinite linear; }
+.fa-pulse { animation: fa-spin 1s infinite steps(8); }
+@keyframes fa-spin {
+    0%  { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Sizing */
+.fa-xs { font-size: .75em; } .fa-sm { font-size: .875em; }
+.fa-lg { font-size: 1.25em; } .fa-xl { font-size: 1.5em; }
+.fa-2xl { font-size: 2em; } .fa-2x { font-size: 2em; }
+.fa-3x { font-size: 3em; } .fa-4x { font-size: 4em; }
+.fa-5x { font-size: 5em; }
+
+/* ======= ICONS (unicode FA 6.x) ======= */
+.fa-address-card:before{content:"\f2bb"}
+.fa-arrow-left:before{content:"\f060"}
+.fa-baby:before{content:"\f77c"}
+.fa-briefcase:before{content:"\f0b1"}
+.fa-building:before{content:"\f1ad"}
+.fa-calendar:before{content:"\f133"}
+.fa-calendar-alt:before{content:"\f073"}
+.fa-calendar-check:before{content:"\f274"}
+.fa-calendar-day:before{content:"\f783"}
+.fa-camera:before{content:"\f030"}
+.fa-certificate:before{content:"\f0a3"}
+.fa-chart-bar:before{content:"\f080"}
+.fa-chart-line:before{content:"\f201"}
+.fa-check:before{content:"\f00c"}
+.fa-check-circle:before{content:"\f058"}
+.fa-chevron-down:before{content:"\f078"}
+.fa-chevron-left:before{content:"\f053"}
+.fa-chevron-right:before{content:"\f054"}
+.fa-circle:before{content:"\f111"}
+.fa-circle-check:before{content:"\f058"}
+.fa-clock:before{content:"\f017"}
+.fa-cog:before{content:"\f013"}
+.fa-crown:before{content:"\f521"}
+.fa-edit:before{content:"\f044"}
+.fa-envelope:before{content:"\f0e0"}
+.fa-exclamation-circle:before{content:"\f06a"}
+.fa-exclamation-triangle:before{content:"\f071"}
+.fa-eye:before{content:"\f06e"}
+.fa-eye-slash:before{content:"\f070"}
+.fa-female:before{content:"\f182"}
+.fa-file-alt:before{content:"\f15c"}
+.fa-file-contract:before{content:"\f56c"}
+.fa-file-excel:before{content:"\f1c3"}
+.fa-file-export:before{content:"\f56e"}
+.fa-file-pdf:before{content:"\f1c1"}
+.fa-file-signature:before{content:"\f573"}
+.fa-fingerprint:before{content:"\f577"}
+.fa-folder-open:before{content:"\f07c"}
+.fa-font:before{content:"\f031"}
+.fa-globe:before{content:"\f0ac"}
+.fa-handshake:before{content:"\f2b5"}
+.fa-hashtag:before{content:"\23"}
+.fa-heart:before{content:"\f004"}
+.fa-heartbeat:before{content:"\f21e"}
+.fa-history:before{content:"\f1da"}
+.fa-home:before{content:"\f015"}
+.fa-hourglass-half:before{content:"\f252"}
+.fa-id-badge:before{content:"\f2c1"}
+.fa-id-card:before{content:"\f2c2"}
+.fa-infinity:before{content:"\f534"}
+.fa-info-circle:before{content:"\f05a"}
+.fa-key:before{content:"\f084"}
+.fa-list-alt:before{content:"\f022"}
+.fa-lock:before{content:"\f023"}
+.fa-male:before{content:"\f183"}
+.fa-map:before{content:"\f279"}
+.fa-map-marker-alt:before{content:"\f3c5"}
+.fa-money-bill:before{content:"\f0d6"}
+.fa-money-bill-wave:before{content:"\f53a"}
+.fa-pen:before{content:"\f304"}
+.fa-phone:before{content:"\f095"}
+.fa-plane:before{content:"\f072"}
+.fa-play:before{content:"\f04b"}
+.fa-play-circle:before{content:"\f144"}
+.fa-plus-circle:before{content:"\f055"}
+.fa-print:before{content:"\f02f"}
+.fa-question-circle:before{content:"\f059"}
+.fa-redo:before{content:"\f01e"}
+.fa-save:before{content:"\f0c7"}
+.fa-search:before{content:"\f002"}
+.fa-shield-alt:before{content:"\f3ed"}
+.fa-sign-in-alt:before{content:"\f2f6"}
+.fa-sign-out-alt:before{content:"\f2f5"}
+.fa-sort-amount-down:before{content:"\f160"}
+.fa-spinner:before{content:"\f110"}
+.fa-star:before{content:"\f005"}
+.fa-stop:before{content:"\f04d"}
+.fa-stop-circle:before{content:"\f28d"}
+.fa-stopwatch:before{content:"\f2f2"}
+.fa-times:before{content:"\f00d"}
+.fa-times-circle:before{content:"\f057"}
+.fa-toggle-on:before{content:"\f205"}
+.fa-trash:before{content:"\f1f8"}
+.fa-trash-alt:before{content:"\f2ed"}
+.fa-umbrella-beach:before{content:"\f5ca"}
+.fa-university:before{content:"\f19c"}
+.fa-user:before{content:"\f007"}
+.fa-user-check:before{content:"\f4fc"}
+.fa-user-circle:before{content:"\f2bd"}
+.fa-user-edit:before{content:"\f4ff"}
+.fa-user-plus:before{content:"\f234"}
+.fa-user-shield:before{content:"\f505"}
+.fa-user-slash:before{content:"\f506"}
+.fa-user-tag:before{content:"\f507"}
+.fa-user-tie:before{content:"\f508"}
+.fa-users:before{content:"\f0c0"}
+.fa-users-slash:before{content:"\e073"}
+.fa-venus-mars:before{content:"\f228"}
