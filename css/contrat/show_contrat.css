@@ -1,0 +1,254 @@
+/* Styles spécifiques pour l'affichage des contrats */
+#contrat-table-container {
+    position: relative;
+    min-height: 400px;
+}
+
+#contrat-table-body {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+#contrat-table-body tr {
+    transition: all 0.2s ease;
+}
+
+#contrat-table-body tr:hover {
+    background-color: #f9fafb;
+    transform: translateY(-1px);
+}
+
+/* Styles pour les photos */
+#contrat-table-body img {
+    transition: all 0.3s ease;
+}
+
+#contrat-table-body img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Styles pour les boutons d'action */
+.view-btn, .edit-btn, .print-btn, .delete-btn {
+    transition: all 0.2s ease;
+    padding: 6px;
+    border-radius: 6px;
+}
+
+.view-btn:hover {
+    background-color: #dbeafe;
+    transform: scale(1.1);
+}
+
+.edit-btn:hover {
+    background-color: #dcfce7;
+    transform: scale(1.1);
+}
+
+.print-btn:hover {
+    background-color: #f3e8ff;
+    transform: scale(1.1);
+}
+
+.delete-btn:hover {
+    background-color: #fee2e2;
+    transform: scale(1.1);
+}
+
+/* Bouton nouveau contrat */
+#btn-new-contrat {
+    background: linear-gradient(135deg, #10b981, #059669);
+    transition: all 0.3s ease;
+}
+
+#btn-new-contrat:hover {
+    background: linear-gradient(135deg, #059669, #047857);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+/* Loading overlay */
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    backdrop-filter: blur(2px);
+}
+
+/* Styles pour la pagination */
+.pagination-btn {
+    transition: all 0.2s ease;
+    min-width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background-color: #10b981;
+    color: white;
+    transform: translateY(-1px);
+}
+
+.pagination-btn.active {
+    background-color: #10b981;
+    color: white;
+    font-weight: 600;
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Animation de chargement */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#contrat-table-body tr {
+    animation: fadeIn 0.3s ease;
+}
+
+/* Barre de recherche focus effect */
+#search-contrat:focus {
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+/* Styles pour les badges d'état */
+.status-active {
+    background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+    border: 1px solid #86efac;
+    color: #166534;
+}
+
+.status-expired {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    border: 1px solid #fca5a5;
+    color: #991b1b;
+}
+
+.status-indeterminate {
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    border: 1px solid #93c5fd;
+    color: #1e40af;
+}
+
+.status-ended {
+    background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+    border: 1px solid #d8b4fe;
+    color: #7e22ce;
+}
+
+/* Styles pour les badges de type de contrat */
+.badge-cdi {
+    background: linear-gradient(135deg, #a7f3d0, #86efac);
+    border: 1px solid #4ade80;
+    color: #166534;
+}
+
+.badge-cdd {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    border: 1px solid #fbbf24;
+    color: #92400e;
+}
+
+.badge-temps-plein {
+    background: linear-gradient(135deg, #bfdbfe, #93c5fd);
+    border: 1px solid #60a5fa;
+    color: #1e40af;
+}
+
+.badge-temps-partiel {
+    background: linear-gradient(135deg, #ddd6fe, #c4b5fd);
+    border: 1px solid #a78bfa;
+    color: #5b21b6;
+}
+
+/* Styles pour la référence de contrat */
+.ref-badge {
+    background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+    border: 1px solid #a5b4fc;
+    color: #3730a3;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #modal-contrat .max-w-7xl {
+        margin: 1rem;
+        max-width: calc(100vw - 2rem);
+    }
+    
+    .flex.items-center.justify-between.mb-6 {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    #btn-new-contrat {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Masquer certaines colonnes sur mobile */
+    .mobile-hidden {
+        display: none;
+    }
+    
+    .table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Styles pour les filtres */
+.filter-btn {
+    transition: all 0.2s ease;
+    padding: 2px;
+    border-radius: 4px;
+}
+
+.filter-btn:hover {
+    background-color: #f3f4f6;
+}
+
+.filter-btn.active {
+    background-color: #10b981;
+    color: white;
+}
+
+.filter-btn.active i {
+    color: white;
+}
+
+/* Styles pour les détails du contrat */
+#contrat-details .info-card {
+    transition: all 0.3s ease;
+    border-left: 4px solid;
+}
+
+#contrat-details .info-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#contrat-details .info-card.employee-info {
+    border-left-color: #3b82f6;
+    background: linear-gradient(to right, #eff6ff, #dbeafe);
+}
+
+#contrat-details .info-card.contract-info {
+    border-left-color: #10b981;
+    background: linear-gradient(to right, #f0fdf4, #dcfce7);
+}

@@ -1,0 +1,286 @@
+/* ═══════════════════════════════════════════════════════════════
+   connexion.css — Style Apple-inspired pour la page de connexion
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+    --apple-black:    #1d1d1f;
+    --apple-gray:     #6e6e73;
+    --apple-light:    #f5f5f7;
+    --apple-white:    #ffffff;
+    --apple-blue:     #0071e3;
+    --apple-blue-h:   #0077ed;
+    --apple-border:   rgba(0,0,0,0.12);
+    --apple-shadow:   0 4px 30px rgba(0,0,0,0.08);
+    --apple-radius:   18px;
+    --apple-input-h:  52px;
+    --transition:     all 0.28s cubic-bezier(0.4,0,0.2,1);
+    --success-color:  #34c759;
+    --error-color:    #ff3b30;
+}
+
+*, *::before, *::after {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--apple-light);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Fond animé dégradé subtil style Apple */
+body::before, body::after {
+    content: '';
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+body::before {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(0,113,227,0.08) 0%, transparent 70%);
+    top: -200px; right: -150px;
+    animation: floatBg 8s ease-in-out infinite alternate;
+}
+body::after {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(0,113,227,0.05) 0%, transparent 70%);
+    bottom: -150px; left: -100px;
+    animation: floatBg 10s ease-in-out infinite alternate-reverse;
+}
+@keyframes floatBg {
+    from { transform: translate(0,0) scale(1); }
+    to   { transform: translate(30px, 20px) scale(1.05); }
+}
+
+/* ── Notifications ── */
+.notification-container {
+    position: fixed; top: 20px; right: 20px;
+    z-index: 9999; width: 340px;
+}
+.notification {
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--apple-border);
+    border-radius: 14px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    display: flex; align-items: center; gap: 12px;
+    animation: notifIn 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    border-left: 3px solid transparent;
+    font-size: 14px; color: var(--apple-black);
+}
+.notification.success { border-left-color: var(--success-color); }
+.notification.error   { border-left-color: var(--error-color); }
+@keyframes notifIn {
+    from { transform: translateX(120%) scale(0.9); opacity: 0; }
+    to   { transform: translateX(0) scale(1); opacity: 1; }
+}
+
+/* ── Card principale ── */
+.login-container {
+    position: relative; z-index: 1;
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.06);
+    width: 100%; max-width: 440px;
+    padding: 48px 44px 40px;
+    animation: cardIn 0.6s cubic-bezier(0.34,1.2,0.64,1);
+}
+@keyframes cardIn {
+    from { opacity: 0; transform: translateY(30px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── Header ── */
+.login-header {
+    text-align: center;
+    margin-bottom: 36px;
+}
+.logo-container {
+    width: 80px; height: 80px;
+    margin: 0 auto 20px;
+    background: linear-gradient(145deg, #ffffff, #e8e8ed);
+    border-radius: 22px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.8);
+    transition: var(--transition);
+}
+.logo-container:hover { transform: scale(1.04); }
+.logo {
+    width: 60px; height: 60px;
+    object-fit: contain; border-radius: 12px;
+}
+.login-header h1 {
+    font-size: 17px; font-weight: 700; letter-spacing: -0.3px;
+    color: var(--apple-black);
+    margin-bottom: 6px;
+}
+.login-header h2 {
+    font-size: 12px; font-weight: 400; letter-spacing: 0.2px;
+    color: var(--apple-gray); margin-bottom: 8px; line-height: 1.5;
+}
+.welcome-text {
+    font-size: 13px; color: var(--apple-gray);
+}
+
+/* ── Formulaire ── */
+.login-form { margin-bottom: 24px; }
+.form-group { margin-bottom: 16px; }
+
+/* ── Input container — CORRECTION: pas d'overflow hidden ── */
+.input-container {
+    position: relative;
+    height: var(--apple-input-h);
+    background: rgba(0,0,0,0.04);
+    border: 1.5px solid transparent;
+    border-radius: 12px;
+    transition: var(--transition);
+    /* overflow: visible; — NE PAS mettre overflow:hidden pour que le label flottant soit visible */
+}
+.input-container:focus-within {
+    background: rgba(255,255,255,0.9);
+    border-color: var(--apple-blue);
+    box-shadow: 0 0 0 3px rgba(0,113,227,0.15);
+}
+
+/* Icône gauche — centrée verticalement, ne bouge PAS */
+.input-container .icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--apple-gray);
+    font-size: 15px;
+    transition: color 0.2s ease;
+    z-index: 2;
+    pointer-events: none;
+}
+.input-container:focus-within .icon {
+    color: var(--apple-blue);
+}
+
+/* Input */
+.input-container input {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    border: none; outline: none;
+    padding: 18px 44px 6px 40px;
+    background: transparent;
+    font-size: 15px; color: var(--apple-black);
+    font-family: inherit;
+    border-radius: 12px;
+    z-index: 1;
+}
+
+/* Label flottant — CORRECTION: z-index élevé, pas coupé */
+.input-label {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--apple-gray);
+    font-size: 15px;
+    transition: var(--transition);
+    pointer-events: none;
+    z-index: 3;
+    transform-origin: left center;
+    background: transparent;
+    white-space: nowrap;
+}
+
+/* Quand focus ou valide: label monte et réduit */
+.input-container input:focus + .input-label,
+.input-container input:not(:placeholder-shown) + .input-label,
+.input-container input:valid + .input-label {
+    top: 10px;
+    transform: translateY(0) scale(0.78);
+    color: var(--apple-blue);
+    font-weight: 500;
+}
+
+/* œil mot de passe */
+.eye-icon {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--apple-gray);
+    cursor: pointer;
+    font-size: 14px;
+    transition: color 0.2s ease;
+    z-index: 3;
+}
+.eye-icon:hover { color: var(--apple-blue); }
+
+/* ── Options ── */
+.form-options {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 24px; font-size: 13px;
+}
+.remember-me {
+    display: flex; align-items: center; gap: 7px;
+    cursor: pointer; color: var(--apple-gray);
+}
+.remember-me input { accent-color: var(--apple-blue); }
+.forgot-password {
+    color: var(--apple-blue); text-decoration: none; font-size: 13px;
+    transition: opacity 0.2s;
+}
+.forgot-password:hover { opacity: 0.75; }
+
+/* ── Bouton ── */
+.login-btn {
+    width: 100%; height: 50px;
+    background: var(--apple-blue);
+    color: white; border: none;
+    border-radius: 12px;
+    font-family: inherit; font-size: 16px; font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    letter-spacing: -0.2px;
+    box-shadow: 0 4px 14px rgba(0,113,227,0.35);
+}
+.login-btn:hover {
+    background: var(--apple-blue-h);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0,113,227,0.4);
+}
+.login-btn:active {
+    transform: scale(0.98) translateY(0);
+    box-shadow: 0 2px 8px rgba(0,113,227,0.3);
+}
+
+/* ── Footer ── */
+.login-footer {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--apple-border);
+    font-size: 11px; color: var(--apple-gray);
+}
+.login-footer .version {
+    font-size: 10px; margin-top: 3px; opacity: 0.6;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+    .login-container { padding: 32px 24px 28px; }
+    .login-header h1 { font-size: 15px; }
+}

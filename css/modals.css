@@ -1,0 +1,54 @@
+/* ═══ Modals Styles ═══ */
+
+/* Overlay géré dynamiquement par JS (z-index, opacity) */
+#modal-overlay {
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+/* Conteneur modal de base */
+[id^="modal-"] {
+    transition: opacity 0.3s ease;
+}
+
+/* Animation du contenu modal */
+.modal-content {
+    animation: modalSlideIn 0.3s cubic-bezier(0.34, 1.2, 0.64, 1);
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.93) translateY(-16px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Bouton fermeture */
+.modal-close-btn {
+    transition: all 0.2s ease;
+}
+.modal-close-btn:hover {
+    transform: rotate(90deg) scale(1.1);
+}
+
+/* Scroll interne */
+.modal-body {
+    scroll-behavior: smooth;
+}
+.modal-body::-webkit-scrollbar { width: 6px; }
+.modal-body::-webkit-scrollbar-track { background: #f1f5f9; }
+.modal-body::-webkit-scrollbar-thumb {
+    background: #cbd5e1; border-radius: 3px;
+}
+.modal-body::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* Classes d'état pour l'animation JS (scale-95, scale-100, opacity-0, opacity-100) */
+.scale-95  { transform: scale(0.95) !important; }
+.scale-100 { transform: scale(1) !important; }
+.opacity-0 { opacity: 0 !important; }
+.opacity-100 { opacity: 1 !important; }
